@@ -11,4 +11,9 @@ public class CarGame {
         auto.setBrand("BMW");
         auto.calculateTorque(172,6000);
     }
+
+    @Test
+    public void startBetterAuto(){
+        AutoAdvanced autoAdvanced = new AutoAdvanced("Renault");
+    }
 }
