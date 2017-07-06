@@ -14,6 +14,6 @@ public class CarGame {
 
     @Test
     public void startBetterAuto(){
-        AutoAdvanced autoAdvanced = new AutoAdvanced("Renault");
+        AutoAdvanced autoAdvanced = new AutoAdvanced("Renault", 200, 60000);
     }
 }

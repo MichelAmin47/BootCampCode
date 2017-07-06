@@ -1,25 +1,34 @@
 package browser;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.EdgeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class BrowserFactoryMedior {
-    public static WebDriver getDriver(String browser){
-        switch(browser.toLowerCase()) {
-            case "firefox":
+/**
+ * Created by MiesMSI on 6-7-2017.
+ */
+public class BrowserFactoryAdvanced {
+
+    public enum Browser{
+        FIREFOX,
+        IE,
+        CHROME;
+    }
+
+
+    public static WebDriver getDriver(Browser browser){
+        switch(browser) {
+            case FIREFOX:
                 return createFireFoxBrowser();
-            case "ie":
+            case IE:
                 return createIEBrowser();
-            case "chrome":
+            case CHROME:
                 return createChromeBrowser();
             default:
                 return createChromeBrowser();
