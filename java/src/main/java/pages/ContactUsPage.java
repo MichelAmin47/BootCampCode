@@ -31,7 +31,7 @@ public class ContactUsPage {
         // This call sets the WebElement fields.
         PageFactory.initElements(driver, this);
     }
-
+    //TODO fix Select
     public void fillInContactForm(String subject, String email, String orderID, String message){
         Select subjectHeading = new Select(driver.findElement(By.cssSelector("select#id_contact")));
         subjectHeading.selectByVisibleText("Customer service");
