@@ -60,5 +60,9 @@ public class Loops {
         for(int i = 0; i < gamesList.size(); i++){
             System.out.println(gamesList.get(i));
         }
+
+        for(String game : gamesList){
+            System.out.println(game);
+        }
     }
 }
