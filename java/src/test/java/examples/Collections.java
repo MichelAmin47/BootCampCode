@@ -35,7 +35,7 @@ public class Collections {
         gamesList.add("Super Mario World");
         gamesList.add("Luigi's Mansion");
 
-        //print the list - is there a smarter way?
+        //print the list - is there a smarter way? -> Loops.class
         System.out.println(gamesList.get(0));
         System.out.println(gamesList.get(1));
         //System.out.println(gamesList.get(2));
