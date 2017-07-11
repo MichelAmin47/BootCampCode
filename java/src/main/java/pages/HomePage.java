@@ -12,6 +12,9 @@ public class HomePage {
     @FindBy(css = "li#header_link_contact > a")
     private WebElement contactButton;
 
+    @FindBy(css = ".login")
+    private WebElement logInButton;
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -22,5 +25,9 @@ public class HomePage {
 
     public void clickContactUS(){
         contactButton.click();
+    }
+
+    public void clickLogIn(){
+        logInButton.click();
     }
 }

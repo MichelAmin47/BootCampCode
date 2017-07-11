@@ -13,6 +13,11 @@ public class CarGame {
     }
 
     @Test
+    public void startCarNow(){
+        Auto.runWithOutInit();
+    }
+
+    @Test
     public void startBetterAuto(){
         AutoAdvanced autoAdvanced = new AutoAdvanced("Renault", 200, 60000);
     }

@@ -1,10 +1,11 @@
-package testcases;
+package testcases.chapterNine;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.ContactUsPage;
 import org.assertj.core.api.Assertions;
 import pages.HomePage;
+import testcases.TestShopScenario;
 
 public class FillinContactFormTest extends TestShopScenario {
 
