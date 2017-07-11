@@ -6,9 +6,6 @@ import pages.ContactUsPage;
 import pages.HomePage;
 import testcases.TestShopScenarioBrowFact;
 
-/**
- * Created by MiesMSI on 11-7-2017.
- */
 public class NOK_FillInContactFormTest extends TestShopScenarioBrowFact {
 
     @Test
