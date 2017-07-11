@@ -54,4 +54,9 @@ public class ContactUsPage {
     public String getInvalidEmailMessage(){
         return invalidEmailElement.getText();
     }
+
+    public void fillInEmailAndClick(String email){
+        emailTextField.sendKeys(email);
+        orderIdTextField.click();
+    }
 }
