@@ -20,4 +20,9 @@ public class Auto {
             System.out.println("The torque of your car is: " + torque);
         }
     }
+
+    //static can be calles witout having to declare the class
+    public static void runWithOutInit(){
+        System.out.println("Vroem vroem");
+    }
 }

@@ -1,4 +1,4 @@
-package exercises;
+package examples;
 
 import examples.EnumExample;
 import org.testng.annotations.Test;

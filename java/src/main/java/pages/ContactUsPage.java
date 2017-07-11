@@ -25,6 +25,9 @@ public class ContactUsPage {
     @FindBy(css = "button#submitMessage")
     private WebElement sendButton;
 
+    @FindBy(css = ".alert.alert-danger>ol>li")
+    private WebElement invalidEmailElement;
+
     public ContactUsPage(WebDriver driver) {
         this.driver = driver;
 
@@ -46,5 +49,14 @@ public class ContactUsPage {
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".alert.alert-success")));
 
         return alertMessageElement.getText();
+    }
+
+    public String getInvalidEmailMessage(){
+        return invalidEmailElement.getText();
+    }
+
+    public void fillInEmailAndClick(String email){
+        emailTextField.sendKeys(email);
+        orderIdTextField.click();
     }
 }
