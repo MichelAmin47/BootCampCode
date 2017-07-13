@@ -10,7 +10,7 @@ public class TestShopScenario  {
 
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp(){
         ChromeDriverManager.getInstance().setup();
         driver = new ChromeDriver();
@@ -19,7 +19,7 @@ public class TestShopScenario  {
         driver.get("https://techblog.polteq.com/testshop/index.php");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
         driver.quit();
     }

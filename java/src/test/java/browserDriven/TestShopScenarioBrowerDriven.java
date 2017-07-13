@@ -15,7 +15,7 @@ public class TestShopScenarioBrowerDriven {
     //Step2: build the testng.xml
     //Step3: adjust the beforeMethod to take the param
     @Parameters("browser")
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp(BrowserFactoryAdvanced.Browser browser){
         //driver = BrowserFactoryBasic.getDriver("Chrome");
         //driver = BrowserFactoryMedior.getDriver(browser);
@@ -25,7 +25,7 @@ public class TestShopScenarioBrowerDriven {
         driver.get("https://techblog.polteq.com/testshop/index.php");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
         driver.quit();
     }
