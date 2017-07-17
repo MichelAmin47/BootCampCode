@@ -13,7 +13,7 @@ public class TestShopScenarioBrowFact {
 
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp(){
         //driver = BrowserFactoryBasic.getDriver("Chrome");
         //driver = BrowserFactoryMedior.getDriver("Chrome");
@@ -23,7 +23,7 @@ public class TestShopScenarioBrowFact {
         driver.get("https://techblog.polteq.com/testshop/index.php");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
         driver.quit();
     }
