@@ -10,15 +10,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import testcases.TestShopScenario;
 
 import java.util.concurrent.TimeUnit;
 
-public class FillCartTest {
+public class FillCartTest extends TestShopScenario{
 
     @Test
     public void fillCart() throws InterruptedException {
-        ChromeDriverManager.getInstance().setup();
-        WebDriver driver = new ChromeDriver();
+        WebDriverWait myWaitVar = new WebDriverWait(driver,20);
 
         // Open the website
         driver.get("https://techblog.polteq.com/testshop/index.php");
@@ -26,7 +26,8 @@ public class FillCartTest {
 
         //Check if empty element is visible
         Assertions.assertThat(driver.findElement(By.className("ajax_cart_no_product")).isDisplayed())
-                .as("Check if empty element is visible").isTrue();
+                .as("Check if empty element is visible")
+                .isTrue();
 
         //Click on the iPod Tag
         driver.findElement(By.cssSelector("a[title='More about ipod']")).click();
@@ -38,14 +39,12 @@ public class FillCartTest {
         driver.findElement(By.id("add_to_cart")).click();
 
         //Continue shopping
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("span[title='Continue shopping']")).click();
+        myWaitVar.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span[title='Continue shopping']")))
+                .click();
 
         //Check if cart number is 1
         Assertions.assertThat(driver.findElement(By.className("ajax_cart_quantity")).getText())
-                .as("Check if number is 1").isEqualTo("1");
-
-        //close browser
-        driver.quit();
+                .as("Check if number is 1")
+                .isEqualTo("1");
     }
 }
