@@ -19,7 +19,6 @@ public class Loops {
             //increment to prevent infinite loop
             i++;
         }
-
     }
 
     @Test
@@ -34,7 +33,6 @@ public class Loops {
             i++;
         }
         while (i < 5);
-
     }
 
     @Test

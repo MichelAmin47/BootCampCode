@@ -8,14 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import testcases.TestShopScenario;
 
-public class EmptyCartTest {
+public class EmptyCartTest extends TestShopScenario {
 
 
     @Test
     public void emptyCart() throws InterruptedException {
-        ChromeDriverManager.getInstance().setup();
-        WebDriver driver = new ChromeDriver();
         WebDriverWait myWaitVar = new WebDriverWait(driver,20);
 
         // Open the website
@@ -31,37 +30,36 @@ public class EmptyCartTest {
             //Add to cart
             driver.findElement(By.id("add_to_cart")).click();
             //Continue shopping
-            myWaitVar.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span[title='Continue shopping']"))).click();
+            myWaitVar.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span[title='Continue shopping']")))
+                    .click();
             //Check if cart number is 1
             Assertions.assertThat(driver.findElement(By.className("ajax_cart_quantity")).getText())
-                    .as("Check if number is 1").isEqualTo("1");
+                    .as("Check if number is 1")
+                    .isEqualTo("1");
         }
-        //Overlay is blocking the cart button
-        Thread.sleep(2000);
 
         //Click the cart button
-        driver.findElement(By.cssSelector(".shopping_cart>a")).click();
+        //Overlay is blocking the cart button
+        myWaitVar.until(ExpectedConditions
+                .elementToBeClickable(By.cssSelector(".shopping_cart>a")))
+                .click();
 
         //Click the trash icon
         driver.findElement(By.className("icon-trash")).click();
 
-        Thread.sleep(2000);
+        //After clickinh the trash icon the site needs time to delete the webtable and show
+        //the empty cart message
+        String emptyCartMessage = myWaitVar.until(ExpectedConditions
+                .visibilityOfElementLocated(By.cssSelector(".alert.alert-warning")))
+                .getText();
 
-        //Check if the empty message appears
-        Assertions.assertThat(driver.findElement(By.cssSelector(".alert.alert-warning")).getText())
+        Assertions.assertThat(emptyCartMessage)
                 .as("Validate if the empty cart message appears")
                 .isEqualTo("Your shopping cart is empty.");
 
-
         //Check if empty element is visible
         Assertions.assertThat(driver.findElement(By.className("ajax_cart_no_product")).isDisplayed())
-                .as("Check if empty element is visible").isTrue();
-
-        driver.quit();
+                .as("Check if empty element is visible")
+                .isTrue();
     }
-
-    private void WebdriverWait(){
-
-    }
-
 }

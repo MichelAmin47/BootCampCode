@@ -26,8 +26,12 @@ public class ValidateSupplierProductTest extends TestShopScenario {
         for(int i = 0; i < supplierProducts.size(); i++){
             if (supplierProducts.get(i).getText().equals("MacBook Air")){
                 macBookFound = true;
+                break;
             }
         }
-        Assertions.assertThat(macBookFound).as("Check if MacBook Air is in the list").isTrue();
+
+        Assertions.assertThat(macBookFound)
+                .as("Check if MacBook Air is in the list")
+                .isTrue();
     }
 }
