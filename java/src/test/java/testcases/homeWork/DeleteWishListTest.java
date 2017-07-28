@@ -10,12 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import testcases.TestShopScenarioBrowFact;
+import testcases.TestShopScenario;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class DeleteWishListTest extends TestShopScenarioBrowFact {
+public class DeleteWishListTest extends TestShopScenario {
 
     @Test
     public void deleteWishList() {
@@ -38,7 +38,7 @@ public class DeleteWishListTest extends TestShopScenarioBrowFact {
         // Click the Log in button
         driver.findElement(By.id("SubmitLogin")).click();
 
-        //Click the
+        //Click the wishlistButton
         driver.findElement(By.cssSelector("i.icon-heart")).click();
 
         //Step 1: Locate the webtable.
