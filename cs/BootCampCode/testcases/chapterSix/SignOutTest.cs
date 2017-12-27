@@ -17,7 +17,7 @@ namespace BootCampCode.testcases.chapterSix
 
             driver.Navigate().GoToUrl("https://techblog.polteq.com/testshop/index.php");
 
-            //driver.Manage().Window.Maximize();
+            driver.Manage().Window.Maximize();
 
             // Click on the login link
             driver.FindElement(By.ClassName("login")).Click();
