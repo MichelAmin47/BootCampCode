@@ -63,10 +63,16 @@ public class AdjustPersonalInfoTest extends TestShopScenario {
             driver.findElement(By.cssSelector(".icon-user")).click();
 
             //Check the new name
+            //By running the test twice the console outputs should switch!
             System.out.println(driver.findElement(By.id("firstname")).getAttribute("value"));
             Assertions.assertThat(driver.findElement(By.id("firstname")).getAttribute("value"))
                     .as("Validate name change")
                     .isEqualTo(changedName);
+        }
+        else
+        {
+            //Assertion or other failsafe. "If" can be removed but this way the bootcampers can try to build a fail
+            //safe. Reasoning here is: test shouldn't run if the login is not shown
         }
     }
 }
