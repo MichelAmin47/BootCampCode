@@ -64,6 +64,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="exercises\FirstSeleniumTest.cs" />
+    <Compile Include="testcases\chapterSix\AdjustPersonalInfoTest.cs" />
+    <Compile Include="testcases\chapterSix\EmptyCart.cs" />
+    <Compile Include="testcases\chapterSix\FillCartTest.cs" />
+    <Compile Include="testcases\chapterSix\SignOutTest.cs" />
+    <Compile Include="testcases\chapterSix\ValidateSupplierProductTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
