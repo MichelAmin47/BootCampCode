@@ -37,6 +37,7 @@ public class FirstSeleniumTest extends TestShopScenario {
         String validationString = driver.findElement(By.cssSelector("h1.page-heading")).getText();
 
         // Verify if the MY ACCOUNT text is show
+        //git demo
         Assertions.assertThat(validationString).as("My account element was not found").isEqualTo("MY ACCOUNT");
 
         driver.quit();
