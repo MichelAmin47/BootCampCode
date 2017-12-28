@@ -33,5 +33,7 @@ public class ValidateSupplierProductTest extends TestShopScenario {
         Assertions.assertThat(macBookFound)
                 .as("Check if MacBook Air is in the list")
                 .isTrue();
+
+        driver.quit();
     }
 }
