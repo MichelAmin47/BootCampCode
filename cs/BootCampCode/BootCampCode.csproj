@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="exercises\FirstSeleniumTest.cs" />
     <Compile Include="testcases\chapterSix\AdjustPersonalInfoTest.cs" />
+    <Compile Include="testcases\chapterSix\CreateAccountTest.cs" />
     <Compile Include="testcases\chapterSix\EmptyCartTest.cs" />
     <Compile Include="testcases\chapterSix\FillCartTest.cs" />
     <Compile Include="testcases\chapterSix\ShortCutAdjustmentTest.cs" />
