@@ -65,6 +65,7 @@
     <Compile Include="testcases\chapterSix\AdjustPersonalInfoTest.cs" />
     <Compile Include="testcases\chapterSix\EmptyCartTest.cs" />
     <Compile Include="testcases\chapterSix\FillCartTest.cs" />
+    <Compile Include="testcases\chapterSix\ShortCutAdjustmentTest.cs" />
     <Compile Include="testcases\chapterSix\SignOutTest.cs" />
     <Compile Include="testcases\chapterSix\ValidateSupplierProductTest.cs" />
     <Compile Include="UnitTest1.cs" />
