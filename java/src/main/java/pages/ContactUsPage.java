@@ -11,37 +11,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ContactUsPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    @FindBy(css = "input#email")
-    private WebElement emailTextField;
+    private By emailTextField = By.cssSelector("input#email");
 
-    @FindBy(css = "input#id_order")
-    private WebElement orderIdTextField;
+    private By orderIdTextField = By.cssSelector("input#id_order");
 
-    @FindBy(css = "textarea#message")
-    private WebElement messageTextField;
+    private By messageTextField = By.cssSelector("textarea#message");
 
-    @FindBy(css = "button#submitMessage")
-    private WebElement sendButton;
+    private By sendButton = By.cssSelector("button#submitMessage");
 
-    @FindBy(css = ".alert.alert-danger>ol>li")
-    private WebElement invalidEmailElement;
+    private By invalidEmailElement = By.cssSelector(".alert.alert-danger>ol>li");
 
     public ContactUsPage(WebDriver driver) {
         this.driver = driver;
 
-        // This call sets the WebElement fields.
-        PageFactory.initElements(driver, this);
     }
     //TODO fix Select
     public void fillInContactForm(String subject, String email, String orderID, String message){
         Select subjectHeading = new Select(driver.findElement(By.cssSelector("select#id_contact")));
         subjectHeading.selectByVisibleText("Customer service");
-        emailTextField.sendKeys(email);
-        orderIdTextField.sendKeys(orderID);
-        messageTextField.sendKeys(message);
-        sendButton.click();
+        driver.findElement(emailTextField).sendKeys(email);
+        driver.findElement(orderIdTextField).sendKeys(orderID);
+        driver.findElement(messageTextField).sendKeys(message);
+        driver.findElement(sendButton).click();
     }
 
     public String validationMessage(){
@@ -52,11 +45,11 @@ public class ContactUsPage {
     }
 
     public String getInvalidEmailMessage(){
-        return invalidEmailElement.getText();
+        return driver.findElement(invalidEmailElement).getText();
     }
 
     public void fillInEmailAndClick(String email){
-        emailTextField.sendKeys(email);
-        orderIdTextField.click();
+        driver.findElement(emailTextField).sendKeys(email);
+        driver.findElement(orderIdTextField).click();
     }
 }

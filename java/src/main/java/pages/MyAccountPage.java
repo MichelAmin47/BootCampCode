@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,24 +10,22 @@ import javax.swing.*;
 
 public class MyAccountPage {
 
-    @FindBy(css = ".info-account")
-    private WebElement welcomeMessageElement;
+    private final WebDriver driver;
 
-    @FindBy(css = ".page-heading")
-    private WebElement myAccountElement;
+    private By welcomeMessageElement = By.cssSelector(".info-account");
+    private By myAccountElement = By.cssSelector(".page-heading");
 
 
     public MyAccountPage(WebDriver driver){
-      // This call sets the WebElement fields.
-      PageFactory.initElements(driver, this);
+        this.driver = driver;
     }
 
 
     public String getMyAccountHeader(){
-        return myAccountElement.getText();
+        return driver.findElement(myAccountElement).getText();
     }
 
     public String getWelcomeMessage(){
-      return welcomeMessageElement.getText();
+        return driver.findElement(welcomeMessageElement).getText();
     }
 }
