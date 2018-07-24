@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
@@ -36,27 +38,29 @@ public class BrowserFactoryAdvanced {
     }
 
     private static WebDriver createChromeBrowser() {
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         //Chrome options are chrome specific
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
+        options.addArguments("start-maximized");
         options.addArguments("ignore-certificate-errors");
+        options.addArguments("disable-infobars");
         //Capabilities can used for WebDriver capabilities ie: proxy
-        capabilities.setCapability("chrome.switches", "--verbose");
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        options.setCapability("chrome.switches", "--verbose");
         ChromeDriverManager.getInstance().setup();
-        return new ChromeDriver(capabilities);
+        return new ChromeDriver(options);
     }
 
     private static WebDriver createFireFoxBrowser() {
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        FirefoxOptions options = new FirefoxOptions();
+        //options.setHeadless(true);
+        options.setCapability("javascriptEnabled", true);
         FirefoxDriverManager.getInstance().setup();
-        return new FirefoxDriver(capabilities);
+        return new FirefoxDriver(options);
     }
 
     private static WebDriver createIEBrowser() {
-        DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+        InternetExplorerOptions options = new InternetExplorerOptions();
+        options.withInitialBrowserUrl("http://www.nu.nl");
         InternetExplorerDriverManager.getInstance().setup();
-        return new InternetExplorerDriver(capabilities);
+        return new InternetExplorerDriver(options);
     }
 }
