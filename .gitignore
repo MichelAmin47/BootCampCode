@@ -277,3 +277,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+java/bootCampJava\.iml
