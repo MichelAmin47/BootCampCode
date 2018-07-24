@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,27 +8,21 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    @FindBy(css = "li#header_link_contact > a")
-    private WebElement contactButton;
-
-    @FindBy(css = ".login")
-    private WebElement logInButton;
+    private By contactButton = By.cssSelector("li#header_link_contact > a");
+    private By logInButton = By.cssSelector(".login");
 
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-
-        // This call sets the WebElement fields.
-        PageFactory.initElements(driver, this);
     }
 
     public void clickContactUS(){
-        contactButton.click();
+        driver.findElement(contactButton).click();
     }
 
     public void clickLogIn(){
-        logInButton.click();
+        driver.findElement(logInButton).click();
     }
 }

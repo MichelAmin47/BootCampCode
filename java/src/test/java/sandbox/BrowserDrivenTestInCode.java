@@ -15,7 +15,7 @@ public class BrowserDrivenTestInCode {
     @DataProvider(name = "BrowserChoice")
     public static Object[][]browser(){
         //the object has the enum from the browser factory
-        return new Object[][]{{BrowserFactoryAdvanced.Browser.FIREFOX}};
+        return new Object[][]{{BrowserFactoryAdvanced.Browser.CHROME}};
     }
 
     //Step 2: alter/remove the TestShopScenario
