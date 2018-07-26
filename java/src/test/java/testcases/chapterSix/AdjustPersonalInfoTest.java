@@ -33,15 +33,15 @@ public class AdjustPersonalInfoTest extends TestShopScenario {
             String currentFirstName = driver.findElement(By.id("firstname")).getAttribute("value");
             System.out.println(currentFirstName);
             String changedName;
-            if (currentFirstName.equals("Sergeant")){
+            if (currentFirstName.equals("Seargent")){
                 driver.findElement(By.id("firstname")).clear();
                 driver.findElement(By.id("firstname")).sendKeys("General");
                 changedName = "General";
             }
             else if (currentFirstName.equals("General")){
                 driver.findElement(By.id("firstname")).clear();
-                driver.findElement(By.id("firstname")).sendKeys("Sergeant");
-                changedName = "Sergeant";
+                driver.findElement(By.id("firstname")).sendKeys("Seargent");
+                changedName = "Seargent";
             }
             else{
                 driver.findElement(By.id("firstname")).clear();

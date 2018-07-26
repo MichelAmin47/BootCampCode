@@ -22,8 +22,17 @@ namespace BootCampCode.testcases.chapterSix
 
             driver.Manage().Window.Maximize();
 
-            var dropdown = new SelectElement(driver.FindElement(By.CssSelector("select[name='supplier_list']")));
-            dropdown.SelectByText("AppleStore");
+            SelectElement dropdown = new SelectElement(driver.FindElement(By.CssSelector("select[name='supplier_list']")));
+            //try
+            //{
+                dropdown.SelectByText("AppleStore");
+            //}
+            //catch (StaleElementReferenceException e)
+            //{
+            //    Console.WriteLine(e);
+            //}
+
+            //myWaitVar.Until(ExpectedConditions.StalenessOf(driver.FindElement(By.XPath("//*[@id='suppliers_block_left']/div/form/div/div/select/option[2]"))));
 
             IList<IWebElement> supplierProducts = driver.FindElements(by: By.CssSelector("h5[itemprop='name']>a"));
 
