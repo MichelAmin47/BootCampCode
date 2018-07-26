@@ -32,6 +32,7 @@ public class EmptyCartTest extends TestShopScenario {
             //Continue shopping
             myWaitVar.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span[title='Continue shopping']")))
                     .click();
+
             //Check if cart number is 1
             Assertions.assertThat(driver.findElement(By.className("ajax_cart_quantity")).getText())
                     .as("Check if number is 1")
@@ -40,9 +41,16 @@ public class EmptyCartTest extends TestShopScenario {
 
         //Click the cart button
         //Overlay is blocking the cart button
+        //myWaitVar.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[class='layer_cart_product col-xs-12 col-md-6']")));
+
+        myWaitVar.until(ExpectedConditions.not(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='layer_cart_product col-xs-12 col-md-6']"))));
+
         myWaitVar.until(ExpectedConditions
-                .elementToBeClickable(By.cssSelector(".shopping_cart>a")))
-                .click();
+                .elementToBeClickable(By.cssSelector(".shopping_cart>a>b")));
+
+        //Overlay menu needs time to appear
+        //Thread.sleep(1000);
+        driver.findElement(By.cssSelector(".shopping_cart>a")).click();
 
         //Click the trash icon
         driver.findElement(By.className("icon-trash")).click();
